@@ -8,28 +8,35 @@ var utenteUno;
 var utenteDue;
 var manoUno;
 var manoDue;
+var somma;
+var risultato
 
 // dichiaro le mie funzioni ----------------------------------------
 
-// funzione per scegliere fra due fattori
-function pariODispari(a,b) {
-    var scelte = [a,b];
-    var sceltafinale = scelte[Math.floor(Math.random() * scelte.length)];
+// funzione per scegliere fra "argomenti"
+function scelte(a,b,c,d,e) {
+    var scelta = [a,b];
+
+    if (c != undefined) {
+      scelta.push(c)
+    }
+
+    if (d != undefined) {
+      scelta.push(d);
+    }
+
+    if (e != undefined) {
+      scelta.push(e);
+    }
+
+    var sceltafinale = scelta[Math.floor(Math.random() * scelta.length)];
     return sceltafinale;
 }
 
 
-// funzione per scegliere fra più numeri
-function daUnoACinque(a,b,c,d,e) {
-    var scelte = [a,b,c,d,e];
-    var sceltafinale = scelte[Math.floor(Math.random() * scelte.length)];
-    return sceltafinale;
-}
-
-
-
+// --------------PARI O DISPARI? ----------------------------------------//
 // dichiaro la scelta tra pari o dispari usando la funzione precedente
-utenteUno = pariODispari("pari","dispari");
+utenteUno = scelte("pari","dispari");
 
 
 // imposto le condizioni per fare scegliere la seconda opzione all'utente due
@@ -39,11 +46,36 @@ if (utenteUno === "pari") {
   utenteDue = "pari";
 }
 
-manoUno = daUnoACinque(1,2,3,4,5);
-manoDue = daUnoACinque(1,2,3,4,5);
-console.log(manoUno , manoDue);
+document.getElementById("sceltauno").innerHTML = utenteUno;
+document.getElementById("sceltadue").innerHTML = utenteDue;
+// console.log("utente uno: " + utenteUno);
+// console.log("utente due: " + utenteDue);
 
 
+// ----------- DA UNO A CINQUE? ---------------------------------------//
+// dichiaro la scelta delle mani fra i due utenti
+manoUno = scelte(1,2,3,4,5);
+manoDue = scelte(1,2,3,4,5);
 
-console.log(utenteUno);
-console.log(utenteDue);
+document.getElementById("numeroUno").innerHTML = manoUno;
+document.getElementById("numeroDue").innerHTML = manoDue;
+// console.log("utente uno: " + manoUno);
+// console.log("utente due: " + manoDue);
+
+
+// ---------- RISULTATO? ---------------------------------------------//
+
+somma = manoUno + manoDue;
+
+document.getElementById("somma").innerHTML = "La somma fa: " + somma;
+
+if (utenteUno === "pari" && somma % 2 === 0) {
+  risultato = "UTENTE UNO VINCE";
+} else if (utenteUno === "dispari" && somma % 2 != 0) {
+  risultato = "UTENTE UNO VINCE";
+} else {
+  risultato = "UTENTE DUE VINCE";
+}
+
+document.getElementById("risultato").innerHTML = risultato;
+console.log(risultato);

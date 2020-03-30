@@ -1,1 +1,58 @@
 /* FOGLIO DI STILE */
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+}
+
+
+#separatore {
+  width: 2px;
+  height:500px;
+  background-color: black;
+}
+
+#robotuno, #robotdue{
+  position: relative;
+}
+
+
+#sceltauno, #sceltadue {
+  width: 160px;
+  height: 54px;
+  background-color: rgb(46, 147, 221);
+  position: absolute;
+  bottom: 122px;
+  left: 227px;
+  text-align: center;
+  line-height: 54px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#numeroUno, #numeroDue {
+  font-size: 50px;
+}
+
+#somma {
+  text-align: center;
+  margin-top: 50px;
+  color: blue;
+  font-size: 50px;
+
+}
+
+#risultato {
+  text-align: center;
+  margin-top: 50px;
+  color: red;
+  font-size: 100px;
+}
